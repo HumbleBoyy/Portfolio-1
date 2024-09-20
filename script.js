@@ -4,6 +4,17 @@ window.addEventListener('DOMContentLoaded', function () {
     header.classList.toggle('sticky', window.scrollY > 0)
   })
 
+    // Loader
+    const loader = document.querySelector('.loader')
+    
+    setTimeout(()=> {
+    loader.style.opacity = '0'
+             setTimeout(()=> { 
+             loader.style.display = 'none'
+             }, 5000)
+           }, 2000)
+    // Loader
+
   const menuBtn = document.querySelector('.menu-btn')
   const navigation = document.querySelector('.navigation')
   const navigationItems = document.querySelectorAll('.navigation a')
@@ -42,4 +53,26 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
   })
+
+    //   //See all 
+    const box2 = document.querySelector('.box');
+    const btns = document.querySelector('.see_all');
+
+    let isBoxExpandeda = false;
+
+    btns.addEventListener('click', ()=> {
+        if(isBoxExpandeda){
+            //If the box is currently expanded, collapse it
+            box2.style.height = '600px';
+        }else{
+            // if the box is currently collapsed, expand it to its full content height
+            box2.style.height = box2.scrollHeight
+             + 'px';
+        }
+
+        // Toggle the state for the next click
+
+        isBoxExpandeda = !isBoxExpandeda
+    })
+    //   //See all 
 })
